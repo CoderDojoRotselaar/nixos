@@ -49,6 +49,7 @@
     desktopManager = {
       xterm.enable = false;
       lxqt.enable = true;
+      wallpaper.mode = "fill";
     };
     displayManager = {
       lightdm = {
