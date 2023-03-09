@@ -100,15 +100,11 @@
     gcompris
     gimp
     git
-    godot3
-    hyphen-nl
+    godot
     inotify-tools
     libreoffice
-    libreoffice-help-nl
-    libreoffice-l10n-nl
     neovim
     openssl
-    puppet-agent
     ripgrep
     vim
     wget
