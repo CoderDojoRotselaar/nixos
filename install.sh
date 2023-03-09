@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/bash -e
 
-fdisk /dev/vda <<EO_PT
+main_disk=$(find /dev/ -maxdepth 1 -name '?da' -print -quit)
+
+fdisk "${main_disk}" <<EO_PT
 o
 n
 p
@@ -18,13 +20,13 @@ lvm
 w
 EO_PT
 
-wipefs -af /dev/vda1
-mkfs.fat -F 32 /dev/vda1
-fatlabel /dev/vda1 boot
+wipefs -af "${main_disk}"1
+mkfs.fat -F 32 "${main_disk}"1
+fatlabel "${main_disk}"1 boot
 
-wipefs -af /dev/vda2
-pvcreate -ff /dev/vda2
-vgcreate rootvg /dev/vda2
+wipefs -af "${main_disk}"2
+pvcreate -ff "${main_disk}"2
+vgcreate rootvg "${main_disk}"2
 
 lvcreate -y -L 20G -n root rootvg
 wipefs -af /dev/rootvg/root
@@ -33,7 +35,16 @@ mkfs.ext4 /dev/rootvg/root -L root
 lvcreate -y -L 4G -n swap rootvg
 wipefs -af /dev/rootvg/swap
 mkswap /dev/rootvg/swap
+swapon /dev/rootvg/swap
 
 mount /dev/disk/by-label/root /mnt
 mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
+
+nixos-generate-config --root /mnt
+
+curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/configuration.nix >/mnt/etc/nixos/configuration.nix
+curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/hardware-configuration.nix >/mnt/etc/nixos/hardware-configuration.nix
+
+cd /mnt
+nixos-install
