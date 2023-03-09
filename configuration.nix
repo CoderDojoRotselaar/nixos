@@ -55,8 +55,10 @@
     displayManager = {
       lightdm = {
         enable = true;
-        autoLogin.enable = true;
-        autoLogin.user = "coderdojo";
+      };
+      autoLogin = {
+        enable = true;
+        user = "coderdojo";
       };
       defaultSession = "xfce";
     };
