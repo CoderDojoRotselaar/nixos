@@ -96,6 +96,7 @@
     git
     git-crypt
     godot
+    tilix
     inotify-tools
     syncthing
     libreoffice
