@@ -98,7 +98,7 @@
     git
     git-crypt
     godot
-    golang
+    go
     inotify-tools
     libreoffice
     neovim
