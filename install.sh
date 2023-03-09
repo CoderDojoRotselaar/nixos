@@ -18,20 +18,20 @@ lvm
 w
 EO_PT
 
-wipefs -a /dev/vda1
+wipefs -af /dev/vda1
 mkfs.fat -F 32 /dev/vda1
 fatlabel /dev/vda1 boot
 
-wipefs -a /dev/vda2
-pvcreate /dev/vda2
+wipefs -af /dev/vda2
+pvcreate -ff /dev/vda2
 vgcreate rootvg /dev/vda2
 
 lvcreate -y -L 20G -n root rootvg
-wipefs -a /dev/rootvg/root
+wipefs -af /dev/rootvg/root
 mkfs.ext4 /dev/rootvg/root -L root
 
 lvcreate -y -L 4G -n swap rootvg
-wipefs -a /dev/rootvg/swap
+wipefs -af /dev/rootvg/swap
 mkswap /dev/rootvg/swap
 
 mount /dev/disk/by-label/root /mnt
