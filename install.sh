@@ -51,6 +51,6 @@ git clone https://github.com/CoderDojoRotselaar/nixos/ /mnt/etc/nixos/
 nixos-generate-config --root /mnt
 
 cd /mnt
-nixos-install
+nixos-install --no-root-passwd
 
 echo "Remove the installation medium and reboot now"
