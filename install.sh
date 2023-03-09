@@ -1,15 +1,21 @@
 #!/bin/bash
 
-sfdisk --force /dev/vda <<EO_PT
-label: dos
-label-id: 0xf5c8b889
-device: /dev/vda
-unit: sectors
-sector-size: 512
+fdisk /dev/vda <<EO_PT
+o
+n
+p
+1
+2048
++500M
+n
+p
+2
 
-/dev/vda1 : start =        2048, size =      1024000, type=83
-/dev/vda2 : start =     1026048, size =    103831552, type=8e
 
+t
+2
+lvm
+w
 EO_PT
 
 wipefs -a /dev/vda1
