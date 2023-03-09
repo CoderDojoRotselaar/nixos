@@ -6,6 +6,7 @@ function __run() {
   cd /etc/nixos
   git pull
   nixos-rebuild switch
+  nix-collect-garbage --delete-older-than 14d
 }
 
 __run
