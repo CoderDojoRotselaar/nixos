@@ -20,6 +20,7 @@
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
+  boot.loader.timeout = 3;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -89,6 +90,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bash
+    black
     curl
     firefox
     gcompris
@@ -96,13 +98,15 @@
     git
     git-crypt
     godot
-    tilix
+    golang
     inotify-tools
-    syncthing
     libreoffice
     neovim
     openssl
     ripgrep
+    rufo
+    syncthing
+    tilix
     vim
     wget
   ];
