@@ -44,7 +44,7 @@ mount "${main_disk}"1 /mnt/boot
 nixos-generate-config --root /mnt
 
 curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/configuration.nix >/mnt/etc/nixos/configuration.nix
-curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/hardware-configuration.nix | sed "s%_MAIN_DISK_%${main_disk}%g" >/mnt/etc/nixos/hardware-configuration.nix
+# curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/hardware-configuration.nix | sed "s%_MAIN_DISK_%${main_disk}%g" >/mnt/etc/nixos/hardware-configuration.nix
 
 cd /mnt
 nixos-install
