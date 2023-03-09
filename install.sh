@@ -37,14 +37,14 @@ wipefs -af /dev/rootvg/swap
 mkswap /dev/rootvg/swap
 swapon /dev/rootvg/swap
 
-mount /dev/disk/by-label/root /mnt
+mount /dev/rootvg/root /mnt
 mkdir -p /mnt/boot
-mount /dev/disk/by-label/boot /mnt/boot
+mount "${main_disk}"1 /mnt/boot
 
 nixos-generate-config --root /mnt
 
 curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/configuration.nix >/mnt/etc/nixos/configuration.nix
-curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/hardware-configuration.nix >/mnt/etc/nixos/hardware-configuration.nix
+curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/hardware-configuration.nix | sed "s/_MAIN_DISK_/${main_disk}/g" >/mnt/etc/nixos/hardware-configuration.nix
 
 cd /mnt
 nixos-install
