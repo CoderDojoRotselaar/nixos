@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sfdisk /dev/vda <<EO_PT
+sfdisk --force /dev/vda <<EO_PT
 label: dos
 label-id: 0xf5c8b889
 device: /dev/vda
