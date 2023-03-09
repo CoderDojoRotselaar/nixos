@@ -1,5 +1,9 @@
 #!/bin/bash -e
 
+echo "Trying to install!"
+echo "Press enter to continue... or ctrl+c to stop"
+read
+
 main_disk=$(find /dev/ -maxdepth 1 -name '?da' -print -quit)
 
 fdisk "${main_disk}" <<EO_PT
@@ -41,10 +45,10 @@ mount /dev/rootvg/root /mnt
 mkdir -p /mnt/boot
 mount "${main_disk}"1 /mnt/boot
 
-nixos-generate-config --root /mnt
+mkdir -p /mnt/etc/
+git clone https://github.com/CoderDojoRotselaar/nixos/ /mnt/etc/nixos/
 
-curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/configuration.nix >/mnt/etc/nixos/configuration.nix
-# curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/hardware-configuration.nix | sed "s%_MAIN_DISK_%${main_disk}%g" >/mnt/etc/nixos/hardware-configuration.nix
+nixos-generate-config --root /mnt
 
 cd /mnt
 nixos-install
