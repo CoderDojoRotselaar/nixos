@@ -95,9 +95,22 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    bash
+    curl
+    gcompris
+    gimp
     git
+    godot3
+    hyphen-nl
+    inotify-tools
+    libreoffice
+    libreoffice-help-nl
+    libreoffice-l10n-nl
+    neovim
+    openssl
+    puppet-agent
     ripgrep
+    vim
     wget
   ];
 
