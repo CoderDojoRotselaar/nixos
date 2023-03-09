@@ -48,3 +48,5 @@ curl -sSLf https://raw.githubusercontent.com/CoderDojoRotselaar/nixos/master/har
 
 cd /mnt
 nixos-install
+
+echo "Remove the installation medium and reboot now"
