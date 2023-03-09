@@ -100,6 +100,7 @@
     git-crypt
     godot
     go
+    lxqt.lximage-qt
     inotify-tools
     libreoffice
     neovim
