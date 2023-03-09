@@ -47,7 +47,7 @@
     enable = true;
     desktopManager = {
       xterm.enable = false;
-      xfce.enable = true;
+      lxqt.enable = true;
     };
     displayManager = {
       lightdm = {
@@ -57,7 +57,7 @@
         enable = true;
         user = "coderdojo";
       };
-      defaultSession = "xfce";
+      defaultSession = "lxqt";
     };
   };
 
@@ -94,6 +94,7 @@
     gcompris
     gimp
     git
+    git-crypt
     godot
     inotify-tools
     syncthing
