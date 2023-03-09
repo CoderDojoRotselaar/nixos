@@ -1,5 +1,9 @@
 #!/bin/bash -eu
 
-cd /etc/nixos
-git pull
-nixos-rebuild switch
+function __run() {
+  cd /etc/nixos
+  git pull
+  nixos-rebuild switch
+}
+
+__run
