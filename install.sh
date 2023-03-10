@@ -143,6 +143,14 @@ function _clone() {
 
   DISK_NAME=$(basename "${MAIN_DISK}")
   ln -s "disk_${DISK_NAME}.nix" disk.nix
+
+  SYSTEM_UUID=$(dmidecode -s system-uuid)
+
+  if [[ -f "systems/${SYSTEM_UUID}.nix" ]]; then
+    ln -s "systems/${SYSTEM_UUID}.nix" system.nix
+  else
+    ln -s "systems/default.nix" system.nix
+  fi
 }
 
 function _generate_config() {

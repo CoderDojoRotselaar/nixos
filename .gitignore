@@ -3,3 +3,4 @@ disk.nix
 *.iso
 include.secrets.sh
 secrets
+system.nix
