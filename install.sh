@@ -4,6 +4,8 @@ set -eu
 
 MAIN_DISK=$(find /dev/ -maxdepth 1 -name '?da' -print -quit)
 WIFI_DEVICE=$(find /run/wpa_supplicant/ -name 'wlp*' -print -quit)
+DISK_NAME=$(basename "${MAIN_DISK}")
+SYSTEM_UUID=$(dmidecode -s system-uuid)
 
 function _verify_disk() {
   if [[ -n "${MAIN_DISK}" ]]; then
@@ -141,10 +143,7 @@ function _clone() {
 
   cd /mnt/etc/nixos
 
-  DISK_NAME=$(basename "${MAIN_DISK}")
   ln -s "disk_${DISK_NAME}.nix" disk.nix
-
-  SYSTEM_UUID=$(dmidecode -s system-uuid)
 
   if [[ -f "systems/${SYSTEM_UUID}.nix" ]]; then
     ln -s "systems/${SYSTEM_UUID}.nix" system.nix
@@ -159,7 +158,7 @@ function _generate_config() {
 
 function _install() {
   cd /mnt
-  nixos-install --no-root-passwd --flake /mnt/etc/nixos#coderdojo --impure
+  nixos-install --no-root-passwd --flake "https://github.com/CoderDojoRotselaar/nixos#${SYSTEM_UUID}" --impure
 }
 
 [[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
