@@ -105,21 +105,32 @@ function _format() {
   pvcreate -ff "${MAIN_DISK}"2
   vgcreate rootvg "${MAIN_DISK}"2
 
-  lvcreate -y -L 20G -n root rootvg
+  lvcreate -y -L 15G -n root rootvg
   wipefs -af /dev/rootvg/root
   mkfs.ext4 /dev/rootvg/root -L root
+
+  lvcreate -y -L 10G -n var rootvg
+  wipefs -af /dev/rootvg/var
+  mkfs.ext4 /dev/rootvg/var -L var
+
+  lvcreate -y -L 10G -n home rootvg
+  wipefs -af /dev/rootvg/home
+  mkfs.ext4 /dev/rootvg/home -L home
 
   lvcreate -y -L 4G -n swap rootvg
   wipefs -af /dev/rootvg/swap
   mkswap /dev/rootvg/swap
-
 }
 
 function _mount() {
   mount /dev/rootvg/root /mnt
-  mkdir -p /mnt/boot
-  swapon /dev/rootvg/swap
+  mkdir -p /mnt/{boot,var,home}
+
   mount "${MAIN_DISK}"1 /mnt/boot
+  mount /dev/rootvg/var /var
+  mount /dev/rootvg/home /home
+
+  swapon /dev/rootvg/swap
 }
 
 function _clone() {
