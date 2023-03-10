@@ -9,9 +9,9 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
-    /etc/nixos/disk.nix
-    /etc/nixos/system.nix
+    ./hardware-configuration.nix
+    ./disk.nix
+    ./system.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -33,21 +33,6 @@
     };
   };
   boot.loader.timeout = 3;
-
-  fileSystems = {
-    "/home" = {
-      device = "/dev/rootvg/home";
-      fsType = "ext4";
-      autoFormat = true;
-      label = "home";
-    };
-    "/var" = {
-      device = "/dev/rootvg/var";
-      fsType = "ext4";
-      autoFormat = true;
-      label = "var";
-    };
-  };
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
