@@ -2,3 +2,4 @@ hardware-configuration.nix
 disk.nix
 *.iso
 include.secrets.sh
+secrets

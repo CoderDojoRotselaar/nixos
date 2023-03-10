@@ -11,7 +11,7 @@ function _git_reset() {
 
 function __run() {
   _git_reset "/etc/nixos"
-  _git_reset "/root/secrets"
+  _git_reset "/etc/nixos/secrets"
 
   nixos-rebuild switch
   nix-collect-garbage --delete-older-than 14d
