@@ -13,6 +13,7 @@ function __run() {
   _git_reset "/etc/nixos"
   _git_reset "/etc/nixos/secrets"
 
+  set -x
   nixos-rebuild switch --flake /etc/nixos#coderdojo --impure
   nix-collect-garbage --delete-older-than 14d
 }
