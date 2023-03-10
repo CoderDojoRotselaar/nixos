@@ -2,11 +2,17 @@
 
 set -eu
 
-function __run() {
-  cd /etc/nixos
+function _git_reset() {
+  cd "$1"
   git reset --hard HEAD
   git restore .
   git pull
+}
+
+function __run() {
+  _git_reset "/etc/nixos"
+  _git_reset "/root/secrets"
+
   nixos-rebuild switch
   nix-collect-garbage --delete-older-than 14d
 }
