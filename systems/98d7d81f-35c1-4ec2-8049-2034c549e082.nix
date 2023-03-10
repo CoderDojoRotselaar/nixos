@@ -5,5 +5,5 @@
   modulePath,
   ...
 }: {
-  networking.hostname = "cdj-jo-vm1";
+  networking.hostName = "cdj-jo-vm1";
 }
