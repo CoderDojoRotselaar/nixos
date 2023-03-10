@@ -143,6 +143,13 @@
     enable = true;
     persistent = true;
     flake = "/etc/nixos#coderdojo";
+    randomizedDelaySec = "60min";
+    flags = [
+      "--upgrade-all"
+      "--recreate-lock-file"
+      "--no-write-lock-file"
+      "-L" # print build logs
+    ];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
