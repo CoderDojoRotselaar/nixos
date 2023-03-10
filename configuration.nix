@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/disk.nix
+    /etc/nixos/system.nix
   ];
 
   # Use the GRUB 2 boot loader.
