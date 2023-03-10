@@ -147,6 +147,7 @@
     flake = "/etc/nixos#coderdojo";
     randomizedDelaySec = "60min";
     flags = [
+      "--impure"
       "--upgrade-all"
       "--recreate-lock-file"
       "--no-write-lock-file"
