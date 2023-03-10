@@ -127,7 +127,7 @@ _verify_disk
 
 echo "Trying to install!"
 echo "Press enter to continue... or ctrl+c to stop"
-read
+read -r _CONTINUE
 
 _network 5
 
@@ -138,4 +138,6 @@ _clone
 _generate_config
 _install
 
-echo "Remove the installation medium and reboot now"
+echo "Remove the installation medium and press enter reboot now... or ctrl+c to stop"
+read -r _REBOOT
+reboot
