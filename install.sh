@@ -69,11 +69,11 @@ function _connect_wifi() {
     return
   fi
 
-  wpa_cli -g "${WIFI_DEVICE}" remove_network 0
+  wpa_cli -g "${WIFI_DEVICE}" remove_network 0 &>/dev/null
   wpa_cli -g "${WIFI_DEVICE}" add_network
   wpa_cli -g "${WIFI_DEVICE}" set_network 0 ssid "\"${WIFI_SSID}\""
 
-  read -s -p "Please enter your WIFI password:" -r WIFI_PASSWORD
+  read -s -p "Please enter your WIFI password: " -r WIFI_PASSWORD
   wpa_cli -g "${WIFI_DEVICE}" set_network 0 psk "\"${WIFI_PASSWORD}\""
 
   wpa_cli -g "${WIFI_DEVICE}" enable_network 0
