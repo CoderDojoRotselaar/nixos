@@ -19,7 +19,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations."coderdojo" = lib.nixosSystem {
+    nixosConfigurations.coderdojo = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ./configuration.nix

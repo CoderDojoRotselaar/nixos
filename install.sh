@@ -151,7 +151,7 @@ function _generate_config() {
 
 function _install() {
   cd /mnt
-  nixos-install --no-root-passwd --flake /mnt/etc/nixos/
+  nixos-install --no-root-passwd --flake /mnt/etc/nixos#coderdojo
 }
 
 [[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
