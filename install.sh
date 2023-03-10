@@ -16,20 +16,22 @@ function _verify_disk() {
 }
 
 function _test_live() {
-  ip ro get 8.8.8.8
+  ip ro get 8.8.8.8 &>/dev/null
 }
 
 function _test_network() {
+  DELAY=${1:-30}
   echo -n "Waiting for network: "
 
-  for i in {10..1}; do
+  while [[ "${DELAY}" -gt 0 ]]; do
     if _test_live; then
       echo
       echo "Network is live!"
       return 0
     fi
 
-    echo -n "${i} "
+    echo -n "${DELAY} "
+    DELAY=$((DELAY - 1))
     sleep 1
   done
 
@@ -38,7 +40,9 @@ function _test_network() {
 }
 
 function _network() {
-  if _test_network; then
+  DELAY=${1:-30}
+
+  if _test_network "${DELAY}"; then
     echo "We have network - let's continue."
     return
   else
@@ -55,7 +59,8 @@ function _connect_wifi() {
   fi
 
   wpa_cli -g "${WIFI_DEVICE}" scan
-  sleep 1
+  echo "Scanning for available networks..."
+  sleep 5
   wpa_cli -g "${WIFI_DEVICE}" scan_results
 
   read -p "Please enter your WIFI SSID (leave enter to skip): " -r WIFI_SSID
@@ -73,7 +78,7 @@ function _connect_wifi() {
 
   wpa_cli -g "${WIFI_DEVICE}" enable_network 0
 
-  _network
+  _network 30
 }
 
 function _format() {
@@ -124,7 +129,7 @@ echo "Trying to install!"
 echo "Press enter to continue... or ctrl+c to stop"
 read
 
-_network
+_network 5
 
 set -x
 _format
