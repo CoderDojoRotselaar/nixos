@@ -129,8 +129,8 @@ function _mount() {
   mkdir -p /mnt/{boot,var,home}
 
   mount "${MAIN_DISK}"1 /mnt/boot
-  mount /dev/rootvg/var /var
-  mount /dev/rootvg/home /home
+  mount /dev/rootvg/var /mnt/var
+  mount /dev/rootvg/home /mnt/home
 
   swapon /dev/rootvg/swap
 }
