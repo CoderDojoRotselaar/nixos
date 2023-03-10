@@ -112,6 +112,11 @@ function _mount() {
 function _clone() {
   mkdir -p /mnt/etc/
   git clone https://github.com/CoderDojoRotselaar/nixos/ /mnt/etc/nixos/
+
+  cd /mnt/etc/nixos
+
+  DISK_NAME=$(basename "${MAIN_DISK}")
+  ln -s disk.nix "disk_${DISK_NAME}.nix"
 }
 
 function _generate_config() {

@@ -10,15 +10,16 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./disk.nix
   ];
 
   # Use the GRUB 2 boot loader.
   boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/EFI";
-    };
-    systemd-boot.enable = true;
+    # efi = {
+    #   canTouchEfiVariables = true;
+    #   efiSysMountPoint = "/boot/EFI";
+    # };
+    # systemd-boot.enable = true;
 
     grub = {
       enable = true;
@@ -27,7 +28,6 @@
       # efiInstallAsRemovable = true;
       # boot.loader.efi.efiSysMountPoint = "/boot/efi";
       # Define on which hard drive you want to install Grub.
-      device = "/dev/vda"; # or "nodev" for efi only
       useOSProber = true;
     };
   };
