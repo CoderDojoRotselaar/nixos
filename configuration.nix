@@ -33,6 +33,21 @@
   };
   boot.loader.timeout = 3;
 
+  fileSystems = {
+    "/home" = {
+      device = "/dev/rootvg/home";
+      fsType = "ext4";
+      autoFormat = true;
+      label = "home";
+    };
+    "/var" = {
+      device = "/dev/rootvg/var";
+      fsType = "ext4";
+      autoFormat = true;
+      label = "var";
+    };
+  };
+
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
