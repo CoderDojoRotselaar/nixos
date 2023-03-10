@@ -95,6 +95,8 @@ function _create_network() {
 }
 
 function _format() {
+  vgchange -an
+
   echo "o n p 1 2048 +500M n p 2   t 2 lvm w" | tr ' ' "\n" | fdisk "${MAIN_DISK}"
 
   wipefs -af "${MAIN_DISK}"1
