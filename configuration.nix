@@ -9,8 +9,8 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./disk.nix
+    /etc/nixos/hardware-configuration.nix
+    /etc/nixos/disk.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -142,6 +142,7 @@
   system.autoUpgrade = {
     enable = true;
     persistent = true;
+    flake = "/etc/nixos#coderdojo";
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
