@@ -118,6 +118,7 @@
   environment.systemPackages = with pkgs; [
     bash
     black
+    dmidecode
     curl
     firefox
     gcompris
