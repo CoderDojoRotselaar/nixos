@@ -5,4 +5,5 @@
   modulePath,
   ...
 }: {
+  networking.hostname = "coderdojo";
 }
