@@ -128,12 +128,15 @@ function _install() {
   nixos-install --no-root-passwd
 }
 
+[[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
+
 _verify_disk
 
 echo "Trying to install!"
 echo "Press enter to continue... or ctrl+c to stop"
 read -r _CONTINUE
 
+_run_before_network
 _network 5
 
 set -x
@@ -141,7 +144,9 @@ _format
 _mount
 _clone
 _generate_config
+_run_before_install
 _install
+_run_after_install
 
 echo "Remove the installation medium and press enter reboot now... or ctrl+c to stop"
 read -r _REBOOT
