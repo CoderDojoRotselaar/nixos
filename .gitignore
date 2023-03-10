@@ -4,4 +4,3 @@ disk.nix
 include.secrets.sh
 secrets
 system.nix
-flake.lock
