@@ -1,18 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  callPackage,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./disk.nix
     ./system.nix
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.coderdojo = {
+    imports = [(import ./home.nix)];
+  };
 
   # Use the GRUB 2 boot loader.
   boot.loader = {
@@ -129,10 +130,9 @@
   system.autoUpgrade = {
     enable = true;
     persistent = true;
-    flake = "/etc/nixos#coderdojo";
+    flake = "/etc/nixos";
     randomizedDelaySec = "60min";
     flags = [
-      "--impure"
       "--upgrade-all"
       "--recreate-lock-file"
       "--no-write-lock-file"

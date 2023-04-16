@@ -1,6 +1,4 @@
 hardware-configuration.nix
-disk.nix
-*.iso
+result/
 include.secrets.sh
 secrets
-system.nix

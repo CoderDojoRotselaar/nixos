@@ -144,12 +144,6 @@ function _clone() {
   cd /mnt/etc/nixos
 
   ln -s "disk_${DISK_NAME}.nix" disk.nix
-
-  if [[ -f "systems/${SYSTEM_UUID}.nix" ]]; then
-    ln -s "systems/${SYSTEM_UUID}.nix" system.nix
-  else
-    ln -s "systems/default.nix" system.nix
-  fi
 }
 
 function _generate_config() {
@@ -157,8 +151,8 @@ function _generate_config() {
 }
 
 function _install() {
-  cd /mnt
-  nixos-install --no-root-passwd --flake "https://github.com/CoderDojoRotselaar/nixos#${SYSTEM_UUID}" --impure
+  cd /mnt/etc/nixos
+  nixos-install --no-root-passwd --flake ".#${SYSTEM_UUID}"
 }
 
 [[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
