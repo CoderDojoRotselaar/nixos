@@ -4,7 +4,6 @@
   ...
 }: {
   environment.etc."install.sh".source = ./install.sh;
-  environment.etc."get-hostname.sh".source = ./get-hostname.sh;
   environment.etc."include.secrets.sh".source = ./include.secrets.sh;
   environment.etc."bashrc.local".text = ''
     sudo bash -eu /etc/install.sh
