@@ -7,10 +7,7 @@
       device = "/dev/rootvg/root";
       fsType = "ext4";
     };
-    "/boot" = {
-      device = "/dev/rootvg/boot";
-      fsType = "ext4";
-    };
+    "/boot".fsType = "ext4";
     "/var" = {
       device = "/dev/rootvg/var";
       fsType = "ext4";
