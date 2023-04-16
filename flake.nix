@@ -21,12 +21,17 @@
         ./virtual_hw.nix
         ./hardware.nix
         home-manager.nixosModules.home-manager
+        ({pkgs, ...}: {
+          networking.hostName = "cdjvm-jovdg-1";
+        })
       ];
     };
     nixosConfigurations."cdj-rots-114" = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -34,6 +39,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -41,6 +48,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -48,6 +57,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -55,6 +66,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -62,6 +75,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -69,6 +84,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -76,6 +93,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -83,13 +102,8 @@
       inherit system;
       modules = [
         ./configuration.nix
-        home-manager.nixosModules.home-manager
-      ];
-    };
-    nixosConfigurations."cdj-jo-vm1" = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -97,6 +111,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -104,6 +120,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -111,6 +129,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -118,6 +138,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -125,6 +147,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -132,6 +156,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./physical_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -139,6 +165,8 @@
       inherit system;
       modules = [
         ./configuration.nix
+        ./virtual_hw.nix
+        ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
     };

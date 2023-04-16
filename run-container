@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat <<EO_HELP
+Run flake with:
+\$ nix --experimental-features "nix-command flakes" flake update /etc/nixos
+EO_HELP
+
+docker run \
+  --tty \
+  --interactive \
+  --rm \
+  --volume $(pwd)/:/etc/nixos -w /etc/nixos \
+  --pull=always nixos/nix
