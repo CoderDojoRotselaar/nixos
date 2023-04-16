@@ -22,7 +22,7 @@
       # "http://cache.nixos.org/" # include this line if you want it to fallback to upstream if your cache is down
     ];
 
-    nixosConfigurations."8624a900-42e2-4f13-a04d-9a961eb1016d" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.coderdojo = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ./configuration.nix
