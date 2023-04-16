@@ -31,7 +31,6 @@
     grub = {
       enable = true;
       version = 2;
-      efiSupport = true;
       # efiInstallAsRemovable = true;
       # boot.loader.efi.efiSysMountPoint = "/boot/efi";
       # Define on which hard drive you want to install Grub.

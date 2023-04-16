@@ -22,7 +22,6 @@
         ./hardware.nix
         home-manager.nixosModules.home-manager
       ];
-      networking.hostname = "cdjvm-jovdg-1";
     };
     nixosConfigurations."cdj-rots-114" = nixpkgs.lib.nixosSystem {
       inherit system;
