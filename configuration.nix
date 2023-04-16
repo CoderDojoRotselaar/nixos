@@ -17,7 +17,7 @@
 
   nix.settings.substituters = [
     "https://nixcache.internal.dwarfy.be/"
-    # "http://cache.nixos.org/" # include this line if you want it to fallback to upstream if your cache is down
+    "http://cache.nixos.org/"
   ];
 
   # Use the GRUB 2 boot loader.

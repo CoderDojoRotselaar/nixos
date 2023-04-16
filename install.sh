@@ -148,7 +148,7 @@ function _install() {
   cd /mnt/etc/nixos
 
   MY_HOSTNAME=$(./get-hostname)
-  nixos-install --no-root-passwd --flake ".#${MY_HOSTNAME}" --substituters https://nixcache.internal.dwarfy.be
+  nixos-install --no-root-passwd --flake ".#${MY_HOSTNAME}" --substituters "https://nixcache.internal.dwarfy.be http://cache.nixos.org/"
 }
 
 [[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
