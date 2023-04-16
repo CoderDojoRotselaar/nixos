@@ -4,7 +4,6 @@ set -eu
 
 MAIN_DISK=$(find /dev/ -maxdepth 1 -name '?da' -print -quit)
 WIFI_DEVICE=$(find /run/wpa_supplicant/ -name 'wlp*' -print -quit)
-DISK_NAME=$(basename "${MAIN_DISK}")
 
 function _verify_disk() {
   if [[ -n "${MAIN_DISK}" ]]; then
@@ -139,10 +138,6 @@ function _mount() {
 function _clone() {
   mkdir -p /mnt/etc/
   git clone https://github.com/CoderDojoRotselaar/nixos/ /mnt/etc/nixos/
-
-  cd /mnt/etc/nixos
-
-  ln -s "disk_${DISK_NAME}.nix" disk.nix
 }
 
 function _generate_config() {
@@ -153,7 +148,7 @@ function _install() {
   cd /mnt/etc/nixos
 
   MY_HOSTNAME=$(./get-hostname)
-  nixos-install --no-root-passwd --flake ".#${MY_HOSTNAME}"
+  nixos-install --no-root-passwd --flake ".#${MY_HOSTNAME}" --substituters https://nixcache.internal.dwarfy.be
 }
 
 [[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
@@ -171,7 +166,7 @@ set -x
 _format
 _mount
 _clone
-_generate_config
+# _generate_config
 _run_before_install
 _install
 _run_after_install

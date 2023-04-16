@@ -1,4 +1,4 @@
 hardware-configuration.nix
-result/
+result
 include.secrets.sh
 secrets
