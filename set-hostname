@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SYSTEM_UUID=$(dmidecode -s system-uuid)
 
