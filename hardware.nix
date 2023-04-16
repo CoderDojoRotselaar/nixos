@@ -24,6 +24,6 @@
     {device = "/dev/rootvg/swap";}
   ];
 
-  network.useDHCP = lib.mkDefault true;
+  networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
