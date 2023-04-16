@@ -16,7 +16,7 @@
   };
 
   nix.settings.substituters = [
-    "http://nixcache.internal.dwarfy.be/"
+    "https://nixcache.internal.dwarfy.be/"
     # "http://cache.nixos.org/" # include this line if you want it to fallback to upstream if your cache is down
   ];
 
