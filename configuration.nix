@@ -4,9 +4,9 @@
 {pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./disk.nix
-    ./system.nix
+    # ./hardware-configuration.nix
+    # ./disk.nix
+    # ./system.nix
   ];
 
   home-manager.useGlobalPkgs = true;
