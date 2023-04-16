@@ -17,11 +17,127 @@
   }: let
     system = "x86_64-linux";
   in {
-    nix.binaryCaches = [
-      "http://nixcache.internal.dwarfy.be/"
-      # "http://cache.nixos.org/" # include this line if you want it to fallback to upstream if your cache is down
-    ];
-
+    nixosConfigurations."cdjvm-jovdg-1" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        ./virtual_hw.nix
+        ./hardware.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-114" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-110" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-102" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-112" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-109" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-106" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-104" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-101" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-111" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-jo-vm1" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-113" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-105" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-108" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-100" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-103" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+    nixosConfigurations."cdj-rots-107" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
     nixosConfigurations.coderdojo = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [

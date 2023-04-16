@@ -3,60 +3,24 @@
 SYSTEM_UUID=$(dmidecode -s system-uuid)
 
 case "${SYSTEM_UUID}" in
-  8624a900-42e2-4f13-a04d-9a961eb1016d)
-    MY_HOSTNAME="cdjvm-jovdg-1"
-    ;;
-  0d8c9181-52b7-11cb-8a92-c6c502cc8ebe)
-    MY_HOSTNAME="cdj-rots-114"
-    ;;
-  2c8a2401-52b5-11cb-9bb3-e1f81b2786ae)
-    MY_HOSTNAME="cdj-rots-110"
-    ;;
-  44454c4c-4300-104e-8051-c4c04f59334a)
-    MY_HOSTNAME="cdj-rots-102"
-    ;;
-  44454c4c-4800-104c-8059-c3c04f4c344a)
-    MY_HOSTNAME="cdj-rots-112"
-    ;;
-  44454c4c-4a00-104c-8059-b7c04f4c344a)
-    MY_HOSTNAME="cdj-rots-109"
-    ;;
-  44454c4c-5200-1043-8048-b5c04f5a334a)
-    MY_HOSTNAME="cdj-rots-106"
-    ;;
-  44454c4c-5200-1043-8048-c4c04f5a334a)
-    MY_HOSTNAME="cdj-rots-104"
-    ;;
-  44454c4c-5a00-1048-8047-b9c04f4d344a)
-    MY_HOSTNAME="cdj-rots-101"
-    ;;
-  492f5781-52c7-11cb-a9c8-f0caa56227d9)
-    MY_HOSTNAME="cdj-rots-111"
-    ;;
-  98d7d81f-35c1-4ec2-8049-2034c549e082)
-    MY_HOSTNAME="cdj-jo-vm1"
-    ;;
-  c3a5aa81-52ba-11cb-a5f3-8e53a88f7257)
-    MY_HOSTNAME="cdj-rots-113"
-    ;;
-  d36d0401-4aee-11cb-986d-95065e95cc69)
-    MY_HOSTNAME="cdj-rots-105"
-    ;;
-  d36d0401-4aee-11cb-986d-be8c87a3b845)
-    MY_HOSTNAME="cdj-rots-108"
-    ;;
-  d36d0401-4aee-11cb-986d-c33af972fdbd)
-    MY_HOSTNAME="cdj-rots-100"
-    ;;
-  d36d0401-4aee-11cb-986d-c7ddc97a038d)
-    MY_HOSTNAME="cdj-rots-103"
-    ;;
-  d36d0401-4aee-11cb-986d-d533cf2c2d33)
-    MY_HOSTNAME="cdj-rots-107"
-    ;;
-  *)
-    MY_HOSTNAME="coderdojo"
-    ;;
+  8624a900-42e2-4f13-a04d-9a961eb1016d) MY_HOSTNAME="cdjvm-jovdg-1" ;;
+  0d8c9181-52b7-11cb-8a92-c6c502cc8ebe) MY_HOSTNAME="cdj-rots-114" ;;
+  2c8a2401-52b5-11cb-9bb3-e1f81b2786ae) MY_HOSTNAME="cdj-rots-110" ;;
+  44454c4c-4300-104e-8051-c4c04f59334a) MY_HOSTNAME="cdj-rots-102" ;;
+  44454c4c-4800-104c-8059-c3c04f4c344a) MY_HOSTNAME="cdj-rots-112" ;;
+  44454c4c-4a00-104c-8059-b7c04f4c344a) MY_HOSTNAME="cdj-rots-109" ;;
+  44454c4c-5200-1043-8048-b5c04f5a334a) MY_HOSTNAME="cdj-rots-106" ;;
+  44454c4c-5200-1043-8048-c4c04f5a334a) MY_HOSTNAME="cdj-rots-104" ;;
+  44454c4c-5a00-1048-8047-b9c04f4d344a) MY_HOSTNAME="cdj-rots-101" ;;
+  492f5781-52c7-11cb-a9c8-f0caa56227d9) MY_HOSTNAME="cdj-rots-111" ;;
+  98d7d81f-35c1-4ec2-8049-2034c549e082) MY_HOSTNAME="cdj-jo-vm1" ;;
+  c3a5aa81-52ba-11cb-a5f3-8e53a88f7257) MY_HOSTNAME="cdj-rots-113" ;;
+  d36d0401-4aee-11cb-986d-95065e95cc69) MY_HOSTNAME="cdj-rots-105" ;;
+  d36d0401-4aee-11cb-986d-be8c87a3b845) MY_HOSTNAME="cdj-rots-108" ;;
+  d36d0401-4aee-11cb-986d-c33af972fdbd) MY_HOSTNAME="cdj-rots-100" ;;
+  d36d0401-4aee-11cb-986d-c7ddc97a038d) MY_HOSTNAME="cdj-rots-103" ;;
+  d36d0401-4aee-11cb-986d-d533cf2c2d33) MY_HOSTNAME="cdj-rots-107" ;;
+  *) MY_HOSTNAME="coderdojo" ;;
 esac
 
 echo "My hostname: ${MY_HOSTNAME}"
