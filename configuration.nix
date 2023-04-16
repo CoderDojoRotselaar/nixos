@@ -126,7 +126,6 @@
     ripgrep
     rufo
     syncthing
-    tilix
     vim
     wget
   ];
