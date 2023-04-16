@@ -5,7 +5,7 @@ set -eu
 MAIN_DISK=$(find /dev/ -maxdepth 1 -name '?da' -print -quit)
 WIFI_DEVICE=$(find /run/wpa_supplicant/ -name 'wlp*' -print -quit)
 DISK_NAME=$(basename "${MAIN_DISK}")
-SYSTEM_UUID=$(dmidecode -s system-uuid)
+MY_HOSTNAME=$(/etc/get-hostname)
 
 function _verify_disk() {
   if [[ -n "${MAIN_DISK}" ]]; then
@@ -152,7 +152,7 @@ function _generate_config() {
 
 function _install() {
   cd /mnt/etc/nixos
-  nixos-install --no-root-passwd --flake ".#${SYSTEM_UUID}"
+  nixos-install --no-root-passwd --flake ".#${MY_HOSTNAME}"
 }
 
 [[ -f /etc/include.secrets.sh ]] && source /etc/include.secrets.sh
