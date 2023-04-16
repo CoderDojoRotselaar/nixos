@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nixos-generate -f install-iso -c boot.nix -o result
