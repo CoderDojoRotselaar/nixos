@@ -23,4 +23,4 @@ case "${SYSTEM_UUID}" in
   *) MY_HOSTNAME="coderdojo" ;;
 esac
 
-echo "${MY_HOSTNAME}"
+echo -n "${MY_HOSTNAME}"
