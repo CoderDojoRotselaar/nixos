@@ -1,7 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     # ./hardware-configuration.nix
@@ -13,6 +17,11 @@
   home-manager.useUserPackages = true;
   home-manager.users.coderdojo = {
     imports = [(import ./home.nix)];
+  };
+
+  home.file."${config.xdg.configHome}" = {
+    source = /etc/nixos/coderdojo_background_black.png;
+    target = ".background-image";
   };
 
   nix.settings.substituters = [
@@ -47,6 +56,8 @@
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
 
+  nvim.enable = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -66,7 +77,7 @@
     desktopManager = {
       xterm.enable = false;
       lxqt.enable = true;
-      wallpaper.mode = "fill";
+      wallpaper.mode = "scale";
     };
     displayManager = {
       lightdm = {
