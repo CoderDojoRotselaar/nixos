@@ -11,18 +11,12 @@
     # ./hardware-configuration.nix
     # ./disk.nix
     # ./system.nix
-    <home-manager/nixos>
   ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.coderdojo = {
     imports = [(import ./home.nix)];
-  };
-
-  home.file."${config.xdg.configHome}" = {
-    source = /etc/nixos/coderdojo_background_black.png;
-    target = ".background-image";
   };
 
   nix.settings.substituters = [
@@ -56,8 +50,6 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
-
-  nvim.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
