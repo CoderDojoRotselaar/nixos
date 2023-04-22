@@ -132,6 +132,8 @@
     syncthing
     vim
     wget
+    file
+    imagemagick
   ];
 
   system.autoUpgrade = {
