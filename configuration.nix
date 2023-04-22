@@ -11,6 +11,7 @@
     # ./hardware-configuration.nix
     # ./disk.nix
     # ./system.nix
+    <home-manager/nixos>
   ];
 
   home-manager.useGlobalPkgs = true;
