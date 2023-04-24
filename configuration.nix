@@ -19,10 +19,13 @@
     imports = [(import ./home.nix)];
   };
 
-  nix.settings.substituters = [
-    "https://nixcache.internal.dwarfy.be/"
-    "http://cache.nixos.org/"
-  ];
+  nix.settings = {
+    connect-timeout = 1;
+    fallback = true;
+    substituters = [
+      "https://nixcache.internal.dwarfy.be/"
+    ];
+  };
 
   # Use the GRUB 2 boot loader.
   boot.loader = {
