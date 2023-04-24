@@ -2,7 +2,7 @@
 
 set -eu
 
-MY_HOSTNAME=$(./get-hostname)
+MY_HOSTNAME=$($(dirname $0)/get-hostname)
 
 function _git_reset() {
   cd "$1"
