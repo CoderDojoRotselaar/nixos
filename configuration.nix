@@ -13,7 +13,7 @@
     # ./system.nix
   ];
 
-  programs.dconf.enable = true;
+  programs.xfconf.enable = true;
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -74,7 +74,10 @@
     enable = true;
     desktopManager = {
       xterm.enable = false;
-      xfce.enable = true;
+      xfce = {
+        enableScreensaver = false;
+        enable = true;
+      };
     };
     displayManager = {
       lightdm = {
