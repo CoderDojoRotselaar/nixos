@@ -21,4 +21,10 @@
   home.packages = with pkgs; [
     nyancat
   ];
+
+  xfconf.settings = {
+    xfce4-desktop = {
+      "backdrop/screen0/monitorLVDS-1/workspace0/last-image" = ./coderdojo_background_black.png;
+    };
+  };
 }
