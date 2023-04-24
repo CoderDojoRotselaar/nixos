@@ -24,7 +24,7 @@
 
   xfconf.settings = {
     xfce4-desktop = {
-      "backdrop/screen0/monitorLVDS-1/workspace0/last-image" = ./coderdojo_background_black.png;
+      "backdrop/screen0/monitorVirtual-1/workspace0/last-image" = "/etc/nixos/coderdojo_background_black.png";
     };
   };
 }
