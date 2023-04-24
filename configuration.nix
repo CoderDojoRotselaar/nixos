@@ -13,6 +13,8 @@
     # ./system.nix
   ];
 
+  programs.dconf.enable = true;
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.coderdojo = {
@@ -72,8 +74,7 @@
     enable = true;
     desktopManager = {
       xterm.enable = false;
-      lxqt.enable = true;
-      wallpaper.mode = "scale";
+      xfce.enable = true;
     };
     displayManager = {
       lightdm = {
@@ -83,7 +84,7 @@
         enable = true;
         user = "coderdojo";
       };
-      defaultSession = "lxqt";
+      defaultSession = "xfce";
     };
   };
 
@@ -125,7 +126,6 @@
     git-crypt
     godot
     go
-    lxqt.lximage-qt
     inotify-tools
     libreoffice
     neovim
