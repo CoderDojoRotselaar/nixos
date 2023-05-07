@@ -10,4 +10,5 @@ docker run \
   --interactive \
   --rm \
   --volume $(pwd)/:/etc/nixos -w /etc/nixos \
-  --pull=always nixos/nix
+  --hostname cdjvm-jovdg-2 \
+  nixos/nix
