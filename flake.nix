@@ -25,6 +25,16 @@
         ({pkgs, ...}: {networking.hostName = "cdjvm-jovdg-1";})
       ];
     };
+    nixosConfigurations."cdjvm-jovdg-2" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        ./virtual_hw.nix
+        ./hardware.nix
+        home-manager.nixosModules.home-manager
+        ({pkgs, ...}: {networking.hostName = "cdjvm-jovdg-2";})
+      ];
+    };
     nixosConfigurations."cdj-rots-114" = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
