@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  inherit inputs;
   imports = [
     ./firefox.nix
   ];

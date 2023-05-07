@@ -4,6 +4,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -18,6 +19,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.coderdojo = {
+    inherit inputs;
     imports = [(import ./home.nix)];
   };
 
