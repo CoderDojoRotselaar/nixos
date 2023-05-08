@@ -50,6 +50,11 @@
   };
   boot.loader.timeout = 3;
 
+  services.sshd.enable = true;
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGVM0O5oqaCoeYzYYmhVUBhUIik+WfDq8WaQf7f5NFkR jo@jo-desktop"
+  ];
+
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
