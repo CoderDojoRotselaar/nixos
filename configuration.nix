@@ -2,9 +2,6 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {pkgs, ...}: {
-  imports = [
-  ];
-
   programs.xfconf.enable = true;
 
   home-manager.useGlobalPkgs = true;
@@ -164,4 +161,17 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur =
+      import (
+        builtins.fetchTarball {
+          url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+          # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
+          sha256 = "0alb2m23f0vz413g022gn1016s02vy6k5mbz167j7lqy97izxbi3";
+        }
+      ) {
+        inherit pkgs;
+      };
+  };
 }
